@@ -1,2 +1,14 @@
-// Copy some experiments you made on ruby String and Fixnum objects below !
-// You choose pick 3 methods for String and 3 methods for Fixnum
+irb(main):028:0> "je suis une string".capitalize
+=> "Je suis une string"
+irb(main):029:0> "Je suis".empty?
+=> false
+irb(main):030:0> "Kayak".reverse
+=> "kayaK"
+irb(main):031:0> "Salut".size
+=> 5
+irb(main):032:0> 3+3
+=> 6
+irb(main):033:0> 3*3
+=> 9
+irb(main):034:0> 3**3
+=> 27
