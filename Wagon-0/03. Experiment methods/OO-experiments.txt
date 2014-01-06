@@ -1,2 +1,0 @@
-// Copy some experiments you made on ruby String and Fixnum objects below !
-// You choose pick 3 methods for String and 3 methods for Fixnum
