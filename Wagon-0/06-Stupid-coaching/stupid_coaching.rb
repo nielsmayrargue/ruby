@@ -1,30 +1,34 @@
-def stupid_coaching 
-puts 'What\'s your question ?'
-answer = gets.chomp
-if answer[-1,1] == "?"
-	puts 'Silly question, get dressed and go to work !'
-elsif answer[-1,1] == "!"
-	puts 'Amazing Niels ! I will answer all your questions !'
-elsif answer == "I am going to work"
-new_rela
-elsif answer.upcase! == nil
-puts 'I can feel your motivation son !'
-else
-	puts 'I don\'t care son, get dressed and go to work'
-end
-stupid_coaching
+def stupid_coaching
+	puts 'What\'s your question ?'
+	answer = gets.chomp
+	puts answer
+	until answer == 'I am going to work right now SIR !'		
+		puts 'I can feel your motivation son !' if answer == answer.upcase
+		if answer == 'I am going to work'
+			new_state(answer)
+		else 
+			old_state(answer)
+		end
+		answer = gets.chomp
+	end
 end
 
-def new_rela
-puts 'what\'s your question ?'
-answer_2 = gets.chomp
-if answer_2[-1,1] == "?"
-puts 'Silly question, take the subway and go to work !'
-elsif answer_2[-1,1] == "!"
-puts 'I don\'t care son, take the subway and go to work !'
+def old_state(answer)
+	if answer.end_with?("?")
+		puts 'Silly question, get dressed and go to work !'
+	else 
+		puts 'I don\'t care son, get dressed and go to work !'
+	end
 end
-new_rela
+
+def new_state(answer)
+	puts 'good boy ! Take the subway, it will be faster'
+	answer = gets.chomp
+	if answer.end_with?("?")
+		puts 'Silly question, take the subway and go to work !'
+	else
+		puts 'I don\'t care son, take the subway and go to work !'
+	end
 end
-	
-# Calling the method
+
 stupid_coaching
