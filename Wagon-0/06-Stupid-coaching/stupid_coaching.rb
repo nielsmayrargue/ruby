@@ -1,11 +1,19 @@
 def stupid_coaching
 	puts 'What\'s your question ?'
 	answer = gets.chomp
-	puts answer
-	until answer == 'I am going to work right now SIR !'		
+	has_answered_first = false
+
+	until answer == 'I am bored SIR !'		
 		puts 'I can feel your motivation son !' if answer == answer.upcase
-		if answer == 'I am going to work'
-			new_state
+		if answer == "I am going to work"
+			puts "good boy"
+			has_answered_first = true 
+			answer = gets.chomp
+			next
+		end
+
+		if has_answered_first
+			new_state(answer)
 		else 
 			old_state(answer)
 		end
@@ -21,16 +29,11 @@ def old_state(answer)
 	end
 end
 
-def new_state
-	puts 'good boy ! Take the subway, it will be faster'
-	answer = gets.chomp
-	until answer == 'I am going to work right now SIR !'		
-		if answer.end_with?("?")
-		puts 'Silly question, take the subway and go to work !'
-		else
-		puts 'I don\'t care son, take the subway and go to work !'
-		end
-		answer = gets.chomp
+def new_state(answer)
+	if answer.end_with?("?")
+		puts 'Silly question, get dressed and take the subway !'
+	else 
+		puts 'I don\'t care son, get dressed and take the subway !'
 	end
 end
 
