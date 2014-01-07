@@ -1,7 +1,7 @@
 def stupid_coaching
 	puts 'What\'s your question ?'
-	answer = gets.chomp
 	has_answered_first = false
+	answer = gets.chomp
 
 	until answer == 'I am bored SIR !'		
 		puts 'I can feel your motivation son !' if answer == answer.upcase
