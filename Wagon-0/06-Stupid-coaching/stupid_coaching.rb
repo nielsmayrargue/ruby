@@ -5,7 +5,7 @@ def stupid_coaching
 	until answer == 'I am going to work right now SIR !'		
 		puts 'I can feel your motivation son !' if answer == answer.upcase
 		if answer == 'I am going to work'
-			new_state(answer)
+			new_state
 		else 
 			old_state(answer)
 		end
@@ -21,13 +21,16 @@ def old_state(answer)
 	end
 end
 
-def new_state(answer)
+def new_state
 	puts 'good boy ! Take the subway, it will be faster'
 	answer = gets.chomp
-	if answer.end_with?("?")
+	until answer == 'I am going to work right now SIR !'		
+		if answer.end_with?("?")
 		puts 'Silly question, take the subway and go to work !'
-	else
+		else
 		puts 'I don\'t care son, take the subway and go to work !'
+		end
+		answer = gets.chomp
 	end
 end
 
