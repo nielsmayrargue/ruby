@@ -1,5 +1,5 @@
 def old_roman_numeral(integer)
-conversion_old = [ 
+conversion = [ 
 	["M",1000],
 	["D",500],
 	["C",100],
@@ -13,8 +13,8 @@ result = ""
 r = integer # reste des divisions euclidiennes successives
 
 for i in 0..6
-	result << conversion_old[i][0]*(r / conversion_old[i][1])
-	r = (integer % conversion_old[i][1])
+	result << conversion[i][0]*(r / conversion[i][1])
+	r = (r % conversion[i][1])
 end
 
 puts result
@@ -22,7 +22,7 @@ puts result
 end
 
 def new_roman_numeral(integer)
-conversion_new = [ 
+conversion = [ 
 	["M",1000],
 	["CM",900],
 	["D",500],
@@ -42,8 +42,8 @@ result = ""
 r = integer # reste des divisions euclidiennes successives
 
 for i in 0..12
-	result << conversion_new[i][0]*(r / conversion_new[i][1])
-	r = (integer % conversion_new[i][1])
+	result << conversion[i][0]*(r / conversion[i][1])
+	r = (r % conversion[i][1])
 end
 
 puts result
@@ -54,5 +54,5 @@ puts "My nice roman numeral tests"
 # Write a nice testing script herebelow !
 puts 'write an arabic number'
 integer = gets.chomp.to_i
-puts "voici le resultat en ancien : #{old_roman_numeral(integer)}"
-puts "voici le resultat en nouveau : #{new_roman_numeral(integer)}"
+puts "#{old_roman_numeral(integer)} est le resultat en ancien"
+puts "#{new_roman_numeral(integer)} est le resultat en nouveau"
