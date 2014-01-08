@@ -11,7 +11,6 @@
 	puts " "
 	puts " "
 
-	chapters.each do |x| 
-			puts "#{x[0].rjust(0)} #{x[1].to_s.rjust(78-x[0].length)}"
+	chapters.each do |x,y| 
+			puts "#{x.rjust(0)} #{y.to_s.rjust(78-x.length)}"
 	end
-
