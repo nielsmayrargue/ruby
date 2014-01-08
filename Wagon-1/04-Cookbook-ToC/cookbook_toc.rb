@@ -1,4 +1,3 @@
-def edition
 	title = "Recettes de kiffeur"
 	chapters = [
 	             ['Materiel pour cuisiner', 1],
@@ -8,7 +7,7 @@ def edition
 	             ['Poissons, coquillages et crustaces', 157]
 	           ]
 
-	puts "#{title.center(70)}"
+	puts title.center(70)
 	puts " "
 	puts " "
 
@@ -16,6 +15,3 @@ def edition
 			puts "#{x[0].rjust(0)} #{x[1].to_s.rjust(78-x[0].length)}"
 	end
 
-end
-
-edition 
