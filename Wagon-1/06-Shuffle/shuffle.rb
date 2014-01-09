@@ -22,7 +22,7 @@ end
 
 def shuffle_1_line_bis( array )
 
-array.sort_by!{ |x| rand(0..(array.length - 1)) }
+array.sort_by { |x| rand(0..(array.length - 1)) }
 
 end
  
