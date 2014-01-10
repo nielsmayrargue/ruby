@@ -45,7 +45,7 @@ puts calories
 end
 
 #test
-calories_in("Cheese_Burger", "Coca")
+calories_in("Cheese_Burger", "Coca", "French_fries", "Sprite")
 
 #update with filet_of_fish
 $conversion << ["filet_of_fish", 100000]
