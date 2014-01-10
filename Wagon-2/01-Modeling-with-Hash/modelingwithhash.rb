@@ -23,7 +23,7 @@ def calories_in(*meal)
 end 
 
 def calories_in_hash(*meal)
-  $conversion_hash = Hash.new
+  $conversion_hash = 
   {
     "Cheese_Burger" => 290,
     "Big_Mac" => 300,
@@ -32,11 +32,15 @@ def calories_in_hash(*meal)
     "French_fries" => 130,
     "Potatoes" => 130,
     "Coca" => 160,
-    "Spite" => 170
+    "Sprite" => 170
   }
 
+calories = 0
+meal.each do |x| 
+calories += $conversion_hash[x]
+end
 
-meal.each { |x| puts $conversion_hash[x] }
+puts calories
 
 end
 
@@ -44,9 +48,9 @@ end
 calories_in("Cheese_Burger", "Coca")
 
 #update with filet_of_fish
-$conversion << ["filet_of_fish", 100]
+$conversion << ["filet_of_fish", 100000]
 puts $conversion[8]
 
 #Call hash
-calories_in_hash("Cheese_burger", "Coca")
+calories_in_hash("Cheese_Burger", "Coca")
 
