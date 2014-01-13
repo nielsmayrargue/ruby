@@ -1,9 +1,9 @@
 def group_anagrams(words)
-  # your code here
-end
+  
 
 # input:
 group_anagrams( ['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream'] )
+
 
 # output:
 # =>  [["cars", "racs", "scar"], ["four"], ["for"], ["potatoes"], ["creams", "scream"]]
