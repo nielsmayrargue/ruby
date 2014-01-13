@@ -1,8 +1,20 @@
 def group_anagrams(words)
-  
+  anagramer = {}
+	words.each do |word|
+    word_key = word.downcase.split("").sort
+    if anagramer.has_key?(word_key)
+      anagramer[word_key] << word
+    else
+      anagramer[word_key] = [word]
+    end
+  end
+
+  return anagramer
+end
+
 
 # input:
-group_anagrams( ['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream'] )
+puts group_anagrams( ['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream'] )
 
 
 # output:
