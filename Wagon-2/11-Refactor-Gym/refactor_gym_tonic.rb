@@ -1,4 +1,5 @@
 # Very dirty code to make some dirty gym...
+=begin
 def hop_hop_hop(number_of_exercises)
   for i in (1..number_of_exercises) do 
     counter = 0
@@ -13,6 +14,13 @@ def hop_hop_hop(number_of_exercises)
     # Reset counter to 0 for the next exercise
     counter = 0
   end
+=end
+
+def hop_hop_hop(number_of_exercises)
+number_of_exercises.times do |i|
+  print "hop! " * (i+1) + "Encore une fois...\n"
+end
 end
 
 hop_hop_hop(6)
+
