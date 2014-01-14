@@ -1,12 +1,38 @@
-def parse_mail
-  # 1. How do you model the jokes ? Pick up the adequate line
-  $jokes = [["gmail", "you're an average but modern person"],["lewagon", "you're skilled and capable"]] 
-  jokes = "gmail,you're an average but modern person\nlewagon;you're skilled and capable" 
-  JOKES = {"gmail" => "you're an average but modern person", "lewagon" => "you're skilled and capable"}
-  
-  # 2. Don't hesitate to add jokes to this poor list..
-  
-  # 3. Now you simply have to code the rest :)
+def parse_mail(mail)
+ 
+  jokes_repertory = {
+  	"gmail" => "you're an average but modern person",
+  	"lewagon" => "you're skilled and capable",
+  	"yahoo" => "you chose the crappiest email provider",
+  	"wanadoo" => "you were probably born in the XVIIIth century"
+  }
+ 
+  if mail.match(/[\w.-]+@[\w.-]+\.com/)
+
+    user_name = mail[0,mail.index("@")]
+    first_name = user_name.split(/[._]/).first
+    last_name = user_name.split(/[._]/).last
+    provider = mail[mail.index("@")+1..-1].split(".").first
+
+    case
+    when /\w+[._][a-z]+/.match(user_name) 
+    	puts "Well done #{first_name} #{last_name}, #{jokes_repertory[provider]}"
+    when /[a-z]+[.][a-z]+/.match(user_name) != user_name
+    	puts "Well done #{user_name}, #{jokes_repertory[provider]}"
+    when mail.match(/[\w.-]+@[\w.-]+\.com/)
+      puts "this email address is not valid. Type a new one"
+      mail = gets.chomp
+      parse_mail(mail)
+    end
+
+  else 
+    puts "this email address is not valid. Type a new one"
+    mail = gets.chomp
+    parse_mail(mail)
+  end
+
 end
 
-parse_mail("boris@lewagon.org") # => "Well done boris, you're skilled and capable"
+puts "type your email address champ"
+mail = gets.chomp
+parse_mail(mail) # => "Well done boris, you're skilled and capable"
