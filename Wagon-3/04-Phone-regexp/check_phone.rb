@@ -13,7 +13,9 @@
 
 
 def is_valid_phone_number(phone_number)
-  # your code here
+
+return phone_number.match(/((0[0-9]{1})|(\+33\s[0-9]{1}))((\s[0-9]{2})|(\-[0-9]{2})|([0-9]{2})){4}/).to_s == phone_number
+
 end
 
 
