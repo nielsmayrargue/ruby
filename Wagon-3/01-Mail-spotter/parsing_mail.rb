@@ -1,11 +1,7 @@
 def parse_mail(mail)
  
   jokes_repertory = {
-  	"gmail" => "you're an average but modern person",
-  	"lewagon" => "you're skilled and capable",
-  	"yahoo" => "you chose the crappiest email provider",
-  	"wanadoo" => "you were probably born in the XVIIIth century"
-  }
+  	"gmail" => "you're an average but modern person", "lewagon" => "you're skilled and capable" }
  
   if mail.match(/[\w.-]+@[\w.-]+\.com/)
 
@@ -14,15 +10,10 @@ def parse_mail(mail)
     last_name = user_name.split(/[._]/).last
     provider = mail[mail.index("@")+1..-1].split(".").first
 
-    case
-    when /\w+[._][a-z]+/.match(user_name) 
+    if /\w+[._][a-z]+/.match(user_name) 
     	puts "Well done #{first_name} #{last_name}, #{jokes_repertory[provider]}"
-    when /[a-z]+[.][a-z]+/.match(user_name) != user_name
+    else /[a-z]+[.][a-z]+/.match(user_name) != user_name
     	puts "Well done #{user_name}, #{jokes_repertory[provider]}"
-    when mail.match(/[\w.-]+@[\w.-]+\.com/)
-      puts "this email address is not valid. Type a new one"
-      mail = gets.chomp
-      parse_mail(mail)
     end
 
   else 
