@@ -1,13 +1,13 @@
 # Method that leads to factorial outside of a class
 def factorial(an_integer)
-	result = 1
-	(1..an_integer).each { |x| result*= x }
-	return result
+        result = 1
+        (1..an_integer).each { |x| result*= x }
+        return result
 end
 
 # Adding the factorial method to the Fixnum class
 class Fixnum
-	def factorial
+        def factorial
     result = 1
     (1..self).each { |x| result*= x }
     return result
