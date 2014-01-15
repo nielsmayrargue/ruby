@@ -1,7 +1,7 @@
+require 'csv' # better here
+
 # Main function : run the whole program 
 def cookbook(csv_file)
-
-  require 'csv'
 
   recipe_dictionary = {}
 
@@ -13,40 +13,46 @@ def cookbook(csv_file)
     end
 
     recipe_dictionary[row[1]][row[0]] = {}
-    recipe_dictionary[row[1]][row[0]]["prep"] = row[2]
-    recipe_dictionary[row[1]][row[0]]["cook"] = row[4]
+    recipe_dictionary[row[1]][row[0]][:prep] = row[2]
+    recipe_dictionary[row[1]][row[0]][:cook] = row[4]
     # The difficulty of each recipe is valuated according to a defined range
     if row[3].to_i > 100
-     recipe_dictionary[row[1]][row[0]]["difficulty"] = "difficile"
+     recipe_dictionary[row[1]][row[0]][:difficulty] = "difficile"
     elsif row[3].to_i < 100 && row[3].to_i > 60
-     recipe_dictionary[row[1]][row[0]]["difficulty"] = "moyen"
+     recipe_dictionary[row[1]][row[0]][:difficulty] = "moyen"
     else
-    recipe_dictionary[row[1]][row[0]]["difficulty"] = "facile"
+    recipe_dictionary[row[1]][row[0]][:difficulty] = "facile"
     end
 
   end
  
+  category_list = recipe_dictionary.keys
+ 
   puts "We have recipes for :"
-  recipe_dictionary.keys.each { |x| puts "-#{x}" } 
+  category_list.each do |category|
+    puts "- #{category}"
+  end
  
   puts "Which category are you interested in ?"
 
-  type = gets.chomp
+  category = gets.chomp
+  recipe_list = recipe_dictionary[category].keys
   
-  puts "\n" + "Here are the recipes of the category :" + "\n"
-  recipe_dictionary[type].keys.each { |x| puts "-#{x}" }
+  puts "\nHere are the recipes of the category :\n"
+  recipe_list.each do |recipe|
+    puts "- #{recipe}"
+  end
 
-  puts " "
-  puts "\n" + "Now which recipe ?"
+  puts "\n\nNow which recipe ?"
 
-  recipe = gets.chomp
+  recipe_name = gets.chomp
+  recipe_info = recipe_dictionary[category][recipe_name]
 
-  puts " "
-  puts "\n" + "recipe"
+  puts "\n\nrecipe"
   puts "************************************"
-  puts "difficulty : #{recipe_dictionary[type][recipe]["difficulty"]}"
-  puts "preparation  : #{recipe_dictionary[type][recipe]["prep"]}min"
-  puts "cooking  : #{recipe_dictionary[type][recipe]["cook"]}h"
+  puts "difficulty : #{recipe_info[:difficulty]}"
+  puts "preparation  : #{recipe_info[:prep]}min"
+  puts "cooking  : #{recipe_info[:cook]}h"
 
 end
 
