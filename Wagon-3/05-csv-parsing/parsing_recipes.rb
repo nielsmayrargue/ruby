@@ -7,7 +7,7 @@ def cookbook(csv_file)
 
 # The CSV file is converted into a hash in order to easily access every information
   CSV.foreach(csv_file) do |row|
-     
+# We could have sorted the rows before manipulating them. Also, we could have renamed the elements of each row and changed it to sym.
     if recipe_dictionary[row[1]] == nil 
     	recipe_dictionary[row[1]] = {} 
     end
